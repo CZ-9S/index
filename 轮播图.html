@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+        ul {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .banner {
+            width: 276.193px;
+            height: 207.136px;
+            margin: 0 auto;
+            position: relative;
+        / / 相对定位
+        }
+        .tine img {
+            position: absolute;
+        / / 绝对定位 left: 0 px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            /*display: none;*/
+        }
+
+        .but {
+            width: 20px;
+            height: 20px;
+            background-image: url("imags/but.png");
+            background-size: 312%;
+            position: absolute;
+        }
+        .but-left {
+            top: 47%;
+            left: 0;
+            background-position-x: 21px;
+            background-position-y: -4px;
+        }
+
+        .but-right {
+            top: 47%;
+            right: 0;
+            background-position-x: -2px;
+            background-position-y: -4px;
+        }
+
+        .banner-3 {
+            width: 50px;
+            height: 20px;
+            position: absolute;
+            left: 42%;
+            top: 80%;
+        }
+
+        .tab {
+            margin-left: 10px;
+            float: left;
+            width: 4px;
+            height: 4px;
+            background-color: black;
+            border: #aba9a2 solid 2px;
+        }
+        .tab:hover{
+            background-color: red;
+        }
+        .ace{
+            background-color: red;
+        }
+    </style>
+    <script src="untitled/jquery-3.4.0.min.js"></script>
+</head>
+<body>
+<div class="banner">
+    <div class="banner-1">
+        <ul>
+            <li class="tine"><img src="imags/img_1.jpg" height="768" width="1024"/></li>
+            <li class="tine"><img src="imags/img_2.jpg" height="768" width="1024"/></li>
+        </ul>
+    </div>
+    <div class="but but-left"></div>
+    <div class="but but-right"></div>
+    <div class="banner-3">
+        <ul>
+            <li class="tab ace"></li>
+            <li class="tab"></li>
+        </ul>
+    </div>
+</div>
+<script>
+    var index=0;
+    $(".tab").click(function () {
+        index=$(this).index();
+        $(this).addClass("ace").siblings().removeClass("ace");
+        $(".tine").eq(index).css("display","none").siblings().css("display","block")
+    })
+    setInterval(function () {
+        index++
+        if(index>1){
+            index=0;
+        }
+        $(".tab").addClass("ace").siblings().removeClass("ace");
+        $(".tine").eq(index).css("display","none").siblings().css("display","block");
+    },5000)
+    $(".but-left").click(function () {
+        index++;
+        if(index>1){
+            index=0;
+        }
+        $(".tab").addClass("ace").siblings().removeClass("ace");
+        $(".tine").eq(index).css("display","none").siblings().css("display","block");
+    })
+    $(".but-right").click(function () {
+        index++;
+        if (index > 1) {
+            index = 0;
+        }
+        $(".tab").addClass("ace").siblings().removeClass("ace");
+        $(".tine").eq(index).css("display", "none").siblings().css("display", "block");
+    })
+</script>
+</body>
+</html>

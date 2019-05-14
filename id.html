@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>id</title>
+</head>
+<body>
+<div style="width: 400px">
+    <div>
+        请输入ID：<input id="nei" type="text" placeholder="请输入你要查询的ID">
+    </div>
+    <div style="text-align: center; margin-top: 20px">
+        <button style="padding: 0px 15px 0px 15px" onclick="dianji()">提交</button>
+    </div>
+    <div style="margin-top:40px">用户输入的ID为：<span id="tihuan"></span></div>
+</div>
+<script>
+    function dianji() {
+        var alnput=document.getElementById("nei");
+        document.getElementById("tihuan").innerText=alnput.value;
+    }
+</script>
+</body>
+</html>

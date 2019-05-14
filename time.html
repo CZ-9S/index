@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>时间</title>
+</head>
+<body>
+您好！今天是
+<script>
+        var today = new Date();
+        var hh = today.getFullYear();
+        // switch (hh>12) {
+        //
+        // }
+        var mm = today.getMonth();
+        var ss = today.getDate();
+        document.writeln( "现在的时间是："+hh+"年"+(mm+1)+"月"+ss+"日");
+</script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>总而言之是测试了</title>
+    <style>
+        body {
+            background-image: url("img_2.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        div {
+            height: 32px;
+            width: 300px;
+            border-bottom: aliceblue solid 0.8px;
+            color: aliceblue;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        input {
+
+        }
+    </style>
+    <script src="jquery-3.4.0.min.js"></script>
+</head>
+<body class="g">
+<div style="margin: 100px auto">
+    <span id="t"></span>
+</div>
+<div>
+    请输入：<input id="f" type="text">
+</div>
+<div>
+    <button class="but1">点击更改背景图片</button>
+</div>
+<div>
+    <button class="but2">点击显示，再点击一次关闭</button>
+</div>
+<div style="display: none" class="r">123456789123456789456
+    <button class="but3">点击关闭</button>
+</div>
+<script>
+    function times() {
+        var da = new Date();
+        var hh = da.getHours();
+        var mm = da.getMinutes();
+        var ss = da.getSeconds();
+        if (ss < 10) {
+            document.getElementById("t").innerHTML = hh + ":" + mm + ":0" + ss;
+        } else {
+            document.getElementById("t").innerHTML = hh + ":" + mm + ":" + ss;
+        }
+    }
+
+    var time = setInterval("times()", 1000);
+    $("#f").focus(function () {
+        $("#f").css("color", "red");
+        // document.getElementsByTagName("input")[0].setAttribute("placeholder","123456789");
+        $("#f").attr("placeholder", "请输入内容");//更改选择的标签的属性值
+    })
+    $("#f").blur(function () {
+        $("#f").css("color", "black");
+        $("#f").attr("placeholder", "");
+    })
+    var me = "img_2";
+    $(".but1").click(function () {
+
+        if (me == "img_2") {
+            me = "img_1";
+        } else {
+            me = "img_2";
+        }
+        $(".g").css("background-image", "url(\"" + me + ".jpg\")")
+        $(".but1").css("color", "red");
+    })
+    $(".but2").click(function () {
+        // $(".r").toggle();//单纯地显示与关闭没有动画
+        // $(".r").fadeToggle(1000);//有动画的现实与关闭过渡为1000毫秒
+        $(".r").slideToggle(1000);//有动画(下滑或者上滑)的现实与关闭过渡为1000毫秒
+
+    })
+    $(".but3").click(function () {
+        $(".r").hide();
+    })
+</script>
+</body>
+</html>
