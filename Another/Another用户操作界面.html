@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户操作界面</title>
+    <style type="text/css">
+        body {
+            background-image: url("images/星空.jpg");
+            background-origin: revert;
+            background-size: 100%;
+            background-repeat: repeat-y;
+        }
+
+        .k {
+            border: red solid 1px;
+            height: 550px;
+        }
+
+        .headphones {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            /*这里替换用户头像*/
+            background-image: url("images/头像.jpg");
+            background-size: 100%;
+        }
+
+        .userss {
+            /*line-height: 50px;*/
+        }
+
+        .userandexit a {
+            line-height: 70px;
+        }
+
+        .G {
+            margin-top: 10px;
+            height: 200px;
+            text-align: center;
+            line-height: 200px;
+        }
+
+        .lo {
+            background-color: azure;
+            border-radius: 5px;
+        }
+
+        .l, .r {
+            margin-top: 20px;
+        }
+
+        .r {
+            text-align: center;
+        }
+
+        .r input {
+            width: 50%;
+        }
+
+        .userF:hover {
+            background-color: #66afe9;
+        }
+    </style>
+    <script src="Js/jquery-3.3.1.js"></script>
+    <link rel="stylesheet" href="Css/bootstrap.css">
+    <script src="Js/bootstrap.js"></script>
+</head>
+<body>
+<div class="body  col-sm-12 col-md-10 col-md-offset-1 rom">
+    <div class="col-md-4 col-sm-12 col-md-push-8 rom l">
+        <div class="col-md-12 col-sm-12 rom lo">
+            <!--                用户头像昵称-->
+            <div class="col-lg-8 col-sm-8 col-md-8">
+                <div class="headphones "></div>
+                <span class="userss">Another</span>
+            </div>
+            <div class="text-center userandexit col-lg-4 col-md-4 col-sm-4">
+                <a href="Another普通用户登录系统.html">退出登录</a>
+            </div>
+        </div>
+        <div class=" lo col-md-12 col-sm-12 G">轮播图</div>
+        <div class=" lo col-md-12 col-sm-12 G">广告投放处</div>
+    </div>
+    <div class="lo col-md-8  col-sm-12 k col-md-pull-4 r">
+        <div>
+            <ul style="margin-top: 10px" class="nav nav-tabs">
+                <li role="presentation" class="active dlabe1"><a href="#">联系人</a></li>
+                <li role="presentation" class="dlabe2"><a href="#">添加联系人</a></li>
+            </ul>
+            <div style="margin-top: 10px" class="d1">
+                <div style="margin: 20px auto;height: 400px;text-align: left;overflow: auto">
+                    <div style="margin: 2px auto;width: 100%;border: #d6d7de solid 1px" class="userF lo row">
+                        <div class="col-sm-12 col-md-12">
+                            <img style="margin-left: 5px" class="headphones">
+                            <span style="margin-left: 20px">1234</span>
+                            <div style="float: right;margin-top: 15px" class="text-center">
+                                <span style="margin-right: 5px"><a class="TF" href="javascript:;">发送消息</a></span>
+                                <span class="TI "><a href="">删除</a></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12 lo XX" style="height: 200px;border: blue solid 1px;display: none">
+<!--                            消息框-->
+                            <div class="lo col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 5px; height: 150px;margin-top: 5px;border: black solid 1px;overflow: auto">
+                                <div class="text-center" style="font-size: 10px">--<span>时间</span>--</div>
+<!--                                BUG：文字太长不能自动换行-->
+                                <div >我：<span>发送的文字…………………………</span></div>
+                            </div>
+<!--                            发送消息模块-->
+                            <form class="form-inline" action="" method="post" style="float: right">
+                                <div class="form-group"><input type="text" class="form-control" placeholder="请输入……"></div>
+                                <button type="submit" class="btn btn-default">发送</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 10px;display:none;" class="d2">
+                <form class="form-inline" action="" method="post">
+                    <div class="form-group"><input type="text" class="form-control" placeholder="请输入你要查找的联系人"></div>
+                    <button type="submit" class="btn btn-default">点击查找</button>
+                </form>
+                <!--            查找完联系人之后显示的区域-->
+                <div style="margin: 20px auto;height: 400px;text-align: left;overflow: auto">
+                    <!--                搜索之后单个联系人区域-->
+                    <div style="margin: 2px auto; height: 52px;width: 100%;border: #d6d7de solid 1px"
+                         class="userF lo">
+                        <img style="margin-left: 5px" class="headphones">
+                        <span style="margin-left: 20px">名字</span>
+                        <span class="TI " style="float: right;"><a href="">添加</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(".dlabe1").click(function () {
+        $(".d1").css("display", "block");
+        $(".d2").css("display", "none");
+        $(this).addClass("active");
+        $(".dlabe2").removeClass("active");
+    })
+    $(".dlabe2").click(function () {
+        $(".d1").css("display", "none");
+        $(".d2").css("display", "block");
+        $(this).addClass("active");
+        $(".dlabe1").removeClass("active");
+    })
+    $(".TF").click(function () {
+        $(this).parent().parent().parent().next(".XX").fadeToggle();
+        if ($(this).html() == "发送消息") {
+            $(this).html("折叠");
+        } else {
+            $(this).html("发送消息");
+        }
+    })
+</script>
+</body>
+</html>
